@@ -1,10 +1,10 @@
 let myButton = document.getElementById("myButton");
 myButton.addEventListener("click", function() {
-    changeButtonColor(myButton, getRandomColor());
+    changeButtonColor(myButton, getRandomColor);
 });
 
-function changeButtonColor(button, rgb) {
-    button.style.backgroundColor = rgb;
+function changeButtonColor(button, randomColorFunction) {
+    button.style.backgroundColor = randomColorFunction();
 }
 
 
