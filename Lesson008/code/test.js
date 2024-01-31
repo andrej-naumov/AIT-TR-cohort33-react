@@ -28,3 +28,8 @@ let user2 = user1;
 
 user2.age = 27;
 console.log(user1);
+
+
+const man = {age:27}
+man.age = 127;
+console.log(man.age);
