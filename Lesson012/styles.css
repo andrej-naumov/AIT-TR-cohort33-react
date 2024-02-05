@@ -1,0 +1,78 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.ingredient-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ingredient-button:hover {
+    background-color: #e0e0e0;
+}
+
+.burger-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.burger-list li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.delete-button
+.ingredient-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #beb8de;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ingredient-button:hover {
+    background-color: #9893b9;
+}
+
+.delete-button:hover {
+    background-color: 9893b9;
+}
+
+.burger-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.burger-list li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.checkbox-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.delete-button {
+    margin-top: 20px;
+}
