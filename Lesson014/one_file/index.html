@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Vehicle</title>
+  <style>
+    #loadingSpinner {
+      display: none;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 2s linear infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -15px;
+      margin-left: -15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <button id="randomVehicleBtn">Get random vehicle</button>
+  <div id="vehicleDetails"></div>
+  <div id="loadingSpinner"></div>
+
+  <script>
+    document.getElementById('randomVehicleBtn').addEventListener('click', getRandomVehicle);
+
+    async function getRandomVehicle() {
+      const loadingSpinner = document.getElementById('loadingSpinner');
+      const randomVehicleBtn = document.getElementById('randomVehicleBtn');
+
+      loadingSpinner.style.display = 'block'; // Включаем спиннер перед началом загрузки данных
+      randomVehicleBtn.disabled = true; // Делаем кнопку неактивной во время загрузки данных
+
+      try {
+        const response = await fetch('https://api.thriving-coders.com/vehicles');
+        const vehicles = await response.json();
+        const randomIndex = Math.floor(Math.random() * vehicles.length);
+        const randomVehicle = vehicles[randomIndex];
+        
+        displayVehicle(randomVehicle);
+      } catch (error) {
+        console.error('Error fetching vehicle data:', error);
+      } finally {
+        loadingSpinner.style.display = 'none'; // Выключаем спиннер после завершения загрузки данных
+        randomVehicleBtn.disabled = false; // Включаем кнопку обратно после завершения загрузки данных или ошибки
+      }
+    }
+
+    function displayVehicle(vehicle) {
+      const vehicleDetails = document.getElementById('vehicleDetails');
+      vehicleDetails.innerHTML = `
+        <h2>${vehicle.model}</h2>
+        <p>Weight Capacity: ${vehicle.weightCapacity} kg</p>
+        <p>Fuel Type: ${vehicle.fuelType}</p>
+        <p>Range With Cargo: ${vehicle.rangeWithCargo} km</p>
+        <p>Range Without Cargo: ${vehicle.rangeWithOutCargo} km</p>
+        <p>Fuel Consumption With Cargo: ${vehicle.fuelConsumptionWithCargo} liters/100 km</p>
+        <p>Useful Area: ${vehicle.usefulArea} square meters</p>
+        <p>Cost of Delivery: $${vehicle.costOfDelivery}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
