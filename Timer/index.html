@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Таймер на 15 минут</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  .timer {
+    font-size: 10vw;
+  }
+</style>
+</head>
+<body>
+
+<div class="timer" id="timer">15:00</div>
+
+<script>
+  // Устанавливаем начальное время в миллисекундах (15 минут)
+  var timeLeft = 15 * 60 * 1000;
+
+  // Обновляем таймер каждую секунду
+  var timerInterval = setInterval(updateTimer, 1000);
+
+  // Функция для обновления таймера
+  function updateTimer() {
+    // Преобразуем время в минуты и секунды
+    var minutes = Math.floor(timeLeft / (1000 * 60));
+    var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // Добавляем ведущий ноль, если секунды или минуты меньше 10
+    minutes = (minutes < 10 ? '0' : '') + minutes;
+    seconds = (seconds < 10 ? '0' : '') + seconds;
+
+    // Обновляем текст таймера
+    document.getElementById('timer').textContent = minutes + ':' + seconds;
+
+    // Уменьшаем время на одну секунду
+    timeLeft -= 1000;
+
+    // Если время закончилось, останавливаем таймер
+    if (timeLeft < 0) {
+      clearInterval(timerInterval);
+      document.getElementById('timer').textContent = 'Время вышло!';
+    }
+  }
+</script>
+
+</body>
+</html>

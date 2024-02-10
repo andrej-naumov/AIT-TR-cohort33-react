@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Contact Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="contactForm" method="post" action="http://localhost:4567/contact">
+        <h1>Contact us</h1>
+
+        <div class="form-group">
+          <label for="name">Name*</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone*</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Your phone number"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your working email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <select id="location" name="location">
+            <option value="new-york" selected>New York</option>
+            <option value="los-angeles">Los Angeles</option>
+            <option value="chicago">Chicago</option>
+            <option value="boston">Boston</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message*</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your message"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group-checkbox">
+          <input type="checkbox" id="agree" name="agree" />
+          <div>
+            <label for="agree">I accept the privacy terms</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit">SEND REQUEST</button>
+          <button type="reset">CLEAR FORM</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

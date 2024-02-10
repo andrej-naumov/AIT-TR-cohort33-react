@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Burger Generator</h1>        
+        <div class="buttons">
+            <button id="toggle-all-button" class="ingredient-button" onclick="toggleAll()" disabled></button>
+        </div>
+        <div class="buttons">
+            <button class="ingredient-button" onclick="addIngredient('Сыр')">Сыр</button>
+            <button class="ingredient-button" onclick="addIngredient('Лук')">Лук</button>
+            <button class="ingredient-button" onclick="addIngredient('Бекон')">Бекон</button>
+            <button class="ingredient-button" onclick="addIngredient('Салат')">Салат</button>
+            <button class="ingredient-button" onclick="addIngredient('Котлета')">Котлета</button>
+            <button class="ingredient-button" onclick="addIngredient('Булочка')">Булочка</button>
+            <button class="ingredient-button" onclick="addIngredient('Кетчуп')">Кетчуп</button>
+        </div>
+        <ul id="burger-list" class="burger-list"></ul>
+        <hr>
+        <button id="delete-button" class="delete-button" onclick="deleteSelected()" disabled>Удалить выбранное</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
